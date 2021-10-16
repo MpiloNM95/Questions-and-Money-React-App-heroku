@@ -1,0 +1,333 @@
+/* The whole app has been styled in the following way */
+/* The height has been set to 100vh (view height) */
+/* The display has been set flex meaning the questions and money can be next to each other on the game */
+/* All the color (text/numbers) on the app will be the #fff */
+.app {
+    height: 100vh;
+    display: flex;
+    background-color: #020230;
+    color: #fff;
+}
+
+/* The main refers to the side in the game where the questions will be asked to the user */
+/* The width has been set 75% which means it takes majority of the screen in gameplay */
+/* The background image has linear gradient as it was to bright and colors have been set below, 
+the background image has also been set on the main side */
+/* The background has been positioned to the center of the page on the main side of 75% */
+/* The display has been set to flex (horizontal) */
+/* The flex direction has been set to column (which means everything fit under each) */
+.main {
+    width: 75%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url('./assets/bg.jpg');
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The top refers to the separation between the areas of the game in the main page as well */
+/* The height has been set to 50% */
+/* This is the parent className and has to be set the position to relative */
+.top {
+    height: 50%;
+    position: relative;
+}
+
+/* This refers to the timer styling in the game which will countdown from 30seconds with the gameplay for the user */
+/* The width has been set 70px */
+/* The height has been set to 70px */
+/* The border radius has been set to 50% (to make it into a full circle) */
+/* The display has been set to flex refers to the the number that actually countdown with circle */
+/* The items have been aligned to the center which refers to the number itself (within circle timer) */
+/* The content has been justified in the center */
+/* The font size has for the number has been set to 30px */
+/* The font weight of the number has been set to 700 */
+/* The position has been set to absolute which is the child element for the top */
+/* The bottom has been set to 10px */
+/* The left has been set to 80px */
+.timer {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+}
+
+/* The bottom refers to the area at the bottom section of the main screen and play area */
+/* The height has been set to 50% */
+.bottom {
+    height: 50%;
+}
+
+/* The trivia is the div tag that holds both the question as well as the 4 possible answers for said question */
+/* The height has been set to 100% */
+/* The display has been set to flex */
+/* The flex direction has been set to column */
+/* The items have been aligned to the center */
+/* The content has been justified to space-around */
+.trivia {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* This is the styling at the bottom of main screen that refers to the question area */
+/* The width has been set to 80% */
+/* The background for the question area has been set to a linear gradient that goes with color theme  */
+/* The border has been set to 2px(thickness), solid(style of border line), #fff(color of the border line) */
+/* The text has been aligned to the center */
+/* The padding all round has been set to 20px */
+/* The border radius has been set to 10px */
+.question {
+    width: 80%;
+    background: linear-gradient(#100241, black);
+    border: 2px solid #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* This refers to the div tags that hold the 4 individual possible answers for the question found in Trivia.js */
+/* The width has been set to 100% */
+/* The display has been set to flex */
+/* The content has been justified to center */
+/* The flex wrap has been set to wrap as it allows the possible 4 answers sit in table */
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+/* This refers to the 4 individual possible answer for the 1 question asked  */
+/* The width has been set to 40% for for the 4 answer */
+/* The padding has been set 10px */
+/* The text has been aligned to center */
+/* The background has linear gradient has been set the colors below for background of each answer */
+/* The border has been set 1px(thickness), solid(border line style), #fff(color of border) for the 4 possible answer */
+/* The border radius has been set to 15px for each of the answer (all round) */
+/* The font size has been set 20px for each of the 4 answers */
+/* The font weight has been set to 300 for the 4 possible answers */
+/* The cursor has been set pointer when user is over the 4 possible answers */
+/* The margin has been set 0(left), 10px(top), 20px(right), 10px(bottom) */
+.answer {
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(#0e0124, #22074d);
+    border: 1px solid #fff;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 0 10px 20px 10px;
+}
+
+/* The answer & answer.active has hover animation  */
+/* The background will change to mediumblue when users mouse is over the 4 possible answers */
+.answer:hover, .answer.active {
+    background: mediumblue;
+}
+
+/* The answer correct meaning when user answer question correctly they will have an animation within the correct answer */
+/* It is suggested if you want to see these animations in the gameplay that you keep you mouse on your answer to if you got it right or not */
+.answer.correct {
+    animation: correct 3s ease forwards;
+}
+
+/* 0%, 22%, 42% = means the background color will flash for percentages in a 3second period */
+/* 20%, 40%, 60% = means that each of the 4 buttons will stay the background color with linear gradient after answered */
+/* 62%, 100% = means after the answered the correct answer will have the background color of green*/
+@keyframes correct {
+    0%,
+    22%,
+    42% {
+        background-color: mediumblue;
+    }
+    20%,
+    40%,
+    60% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    62%,
+    100% {
+        background-color: green;
+    }
+}
+
+/* The answer wrong meaning when user answer question incorrectly they will an animation within the wrong answer */
+/* It is suggested if you want to see these animations in the gameplay that you keep you mouse on your answer to if you got it right or not */
+.answer.wrong {
+    animation: wrong 3s ease forwards;
+}
+
+/* 0%, 22%, 42% = means the background color will flash for percentages in a 3second period */
+/* 20%, 40%, 60% = means that each of the 4 buttons will stay the background color with linear gradient after answered */
+/* 62%, 100% = means after the answered the correct answer will have the background color of crimson*/
+@keyframes wrong {
+    0%,
+    22%,
+    42% {
+        background-color: mediumblue;
+    }
+    20%,
+    40%,
+    60% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    62%,
+    100% {
+        background-color: crimson;
+    }
+}
+
+/* The pyramid refers to the side with the question number as well as the amount the question is worth */
+/* The width has been set to 25% */
+/* The display has been set flex */
+/* The items have been aligned to the center */
+/* The content has been justified to the center */
+.pyramid {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The money list refers to the container that holds the the question number as well as the amount */
+/* The list style has been removed (meaning no more bullet points) */
+/* The padding has been set 20px */
+.moneyList {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+
+/* The money list items refers to the question and amount in terms (digits next to each other on the list) */
+/* The display has been set to flex */
+/* The items have been aligned to the center */
+/* The padding has been set to 5px */
+/* The border-radius has been set to 5px */
+.moneyListItem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* This refers when user is actually playing the game which question and 
+amount will be highlighted for the user */
+/* To help show the background color has been set to teal to
+ contrast with background color of the game and numbers */
+.moneyListItem.active {
+    background-color: teal;
+}
+
+/* This refers to the question numbers individually */
+/* The font size has been set to 18px */
+/* The font weight has been set to 100 */
+/* The width has been set to 30% */
+.moneyListItemNumber {
+    font-size: 18px;
+    font-weight: 100;
+    width: 30%;
+}
+
+/* This refers to the amounts of money individually */
+/* The font size has been set to 20px */
+/* The font weight has been set 300 */
+.moneyListItemAmount {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* This will be the text that shows up ("You Earned") when the game has stop due to user getting a question wrong */
+/* The position has been set to relative */
+/* The top has been set to 0 */
+/* The bottom has been set 0 */
+/* The left has been set to 0 */
+/* The right has been set to 0 */
+/* The margin has been set auto (means will center) */
+.endText {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* This refers to the div tag that holds the input placeholder where user adds name and button to start game */
+/* The width has been set to 250px */
+/* The height has been set to 100px */
+/* The display has been set to flex */
+/* The flex direction has been set to column */
+/* The items have been aligned to the center */
+/* The content has been justified to the center */
+/* The position has been set to relative */
+/* The top has been set to 0 */
+/* The bottom has been set to 0 */
+/* The left has been set to 0 */
+/* The right has been set to 0 */
+/* The margin has been set to auto (center button and input area) */
+.start {
+    width: 250px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* This refers to the actual styling for the input area  "enter your name" */
+/* The width has been set to 100% */
+/* The height has been set to 30px */
+/* The border has been set to none */
+/* The border-radius has been set to 5px */
+/* The text has been aligned to the center (inside the input area) */
+/* The font size has been set to 18px */
+.startInput {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* The input area also has focus animation */
+/* The outline has been set none */
+.startInput:focus {
+    outline: none;
+}
+
+/* This refers to actual button below the input area "Start" */
+/* The width has been set to 100% */
+/* The height has been set 30px */
+/* The border has been set to none */
+/* The cursor has been set pointer (mouse will change to point hand over button" */
+/* The font size has been set to 18px */
+/* The font weight has been set to 500 */
+.startButton {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+}
